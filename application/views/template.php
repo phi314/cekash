@@ -23,7 +23,7 @@
 
         <!-- Add your site or application content here -->
         <!-- START PAGE CONTAINER -->
-        <div class="page-container page-navigation-top-fixed page-navigation-toggled">
+        <div class="page-container page-navigation-top-fixed ">
 
             <?php $this->load->view('include/sidebar'); ?>
 

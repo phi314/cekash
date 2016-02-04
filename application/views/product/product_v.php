@@ -1,7 +1,7 @@
 <!-- START BREADCRUMB -->
 <ul class="breadcrumb">
     <li><a href="<?php echo base_url('home'); ?>">Home</a></li>
-    <li class="active"><?php echo lang('base_item'); ?></li>
+    <li class="active"><?php echo lang('base_product'); ?></li>
 </ul>
 <!-- END BREADCRUMB -->
 
@@ -10,10 +10,10 @@
 
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title"><?php echo lang('base_item'); ?></h3>
+                <h3 class="panel-title"><?php echo lang('base_product'); ?></h3>
                 <ul class="panel-controls">
                     <li>
-                        <a href="<?php echo base_url('item/add'); ?>"><i class="fa fa-plus"></i> </a>
+                        <a href="<?php echo base_url('product/add'); ?>"><i class="fa fa-plus"></i> </a>
                     </li>
                 </ul>
             </div>
@@ -36,21 +36,21 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <?php $no = 1; foreach($items as $item): ?>
+                    <?php $no = 1; foreach($products as $product): ?>
                         <tr>
                             <td><?php echo $no++; ?>.</td>
-                            <td><?php echo $item->sku; ?></td>
-                            <td><?php echo $item->name; ?></td>
-                            <td><?php echo $item->name; ?></td>
-                            <td><?php echo $item->buy_price; ?></td>
-                            <td><?php echo $item->sell_price; ?></td>
-                            <td><?php echo $item->stock; ?></td>
-                            <td><?php echo $item->location; ?></td>
-                            <td><?php echo $item->color; ?></td>
-                            <td><?php echo $item->weight.' '.$item->weight_unit; ?></td>
-                            <td><?php echo !empty($item->user) ? $item->user->name : ''; ?></td>
+                            <td><?php echo $product->sku; ?></td>
+                            <td><?php echo $product->name; ?></td>
+                            <td><?php echo $product->name; ?></td>
+                            <td><?php echo $product->buy_price; ?></td>
+                            <td><?php echo $product->sell_price; ?></td>
+                            <td><?php echo $product->stock; ?></td>
+                            <td><?php echo $product->location; ?></td>
+                            <td><?php echo $product->color; ?></td>
+                            <td><?php echo $product->weight.' '.$product->weight_unit; ?></td>
+                            <td><?php echo !empty($product->user) ? $product->user->name : ''; ?></td>
                             <td>
-                                <a href="<?php echo base_url('item/' . $item->id); ?>">Detail</a>
+                                <a href="<?php echo base_url('product/' . $product->id); ?>">Detail</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

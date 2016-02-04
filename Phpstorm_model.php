@@ -12,10 +12,12 @@
  * <examples>
  *
  * @property example_m     $example_m
- * @property item_m        $item_m
+ * @property product_m     $product_m
  * @property category_m    $category_m
  * @property user_m        $user_m
  * @property supplier_m    $supplier_m
+ * @property type_m        $type_m
+ * @property brand_m       $brand_m
  *
  *
  *

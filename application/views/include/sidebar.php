@@ -20,18 +20,31 @@
                 </div>
             </div>
         </li>
-        <li class="xn-title">Navigation</li>
         <li>
             <a href="<?php echo base_url('home'); ?>" title="Beranda"><span class="fa fa-home"></span> <span class="xn-text">Home</span></a>
         </li>
-        <li>
-            <a href="<?php echo base_url('item'); ?>" title="Item"><span class="fa fa-tag"></span> <span class="xn-text">Item</span></a>
-        </li>
-        <li>
-            <a href="<?php echo base_url('category'); ?>" title="Kategori"><span class="fa fa-tasks"></span> <span class="xn-text">Pengatuan</span></a>
-        </li>
-        <li>
-            <a href="<?php echo base_url('supplier'); ?>" title="Supplier"><span class="fa fa-truck"></span> <span class="xn-text">Supplier</span></a>
+        <li class="xn-openable">
+            <a href="#" title="Products"><span class="fa fa-archive"></span> <span class="xn-text">Product</span></a>
+            <ul>
+                <li>
+                    <a href="<?php echo base_url('product'); ?>" title="Products"><span class="xn-text">Products</span></a>
+                </li>
+                <li>
+                    <a href="<?php echo base_url('stock'); ?>" title="Stock Control"><span class="xn-text">Stock Control</span></a>
+                </li>
+                <li>
+                    <a href="<?php echo base_url('type'); ?>" title="Product Types"><span class="xn-text">Product Types</span></a>
+                </li>
+                <li>
+                    <a href="<?php echo base_url('brand'); ?>" title="Brand"><span class="xn-text">Brands</span></a>
+                </li>
+                <li>
+                    <a href="<?php echo base_url('supplier'); ?>" title="Suppliers"><span class="xn-text">Suppliers</span></a>
+                </li>
+                <li>
+                    <a href="<?php echo base_url('tags'); ?>" title="Suppliers"><span class="xn-text">Product Tags</span></a>
+                </li>
+            </ul>
         </li>
         <li>
             <a href="<?php echo base_url('user'); ?>" title="User"><span class="fa fa-user"></span> <span class="xn-text">User</span></a>

@@ -1,18 +1,18 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Item_m extends US_Model
+class Product_m extends US_Model
 {
 
     public function __construct()
     {
         parent::__construct();
-        $this->table = 'item';
+        $this->table = 'product';
     }
 
     public function insert($input)
     {
         $data = [
-            'sku'              => $input['sku'],
+            'sku'               => $input['sku'],
             'name'              => $input['name'],
             'id_category'       => $input['id_category'],
             'buy_price'         => $input['buy_price'],

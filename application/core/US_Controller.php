@@ -8,6 +8,8 @@
 class US_Controller extends CI_Controller
 {
 
+    var $pre_title = "Cekash / ";
+
     public function __construct()
     {
         parent::__construct();

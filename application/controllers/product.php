@@ -1,12 +1,12 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Item extends US_Controller
+class product extends US_Controller
 {
 
     public function __construct()
     {
         parent::__construct();
-        $this->load->model(['item_m']);
+        $this->load->model(['product_m']);
     }
 
     public function index()
@@ -15,19 +15,19 @@ class Item extends US_Controller
             'datatables/jquery.dataTables.min'
         ];
 
-        $items = $this->item_m->all('name');
-        foreach($items as $key => $row)
+        $products = $this->product_m->all('name');
+        foreach($products as $key => $row)
         {
             $user = $this->user_m->find($row->id_user);
-            $items[$key]->user = $user;
+            $products[$key]->user = $user;
         }
 
 
         $data = [
-            'title'             => 'Item',
-            'main_content'      => 'item/item_v',
+            'title'             => 'product',
+            'main_content'      => 'product/product_v',
             'js'                => $js,
-            'items'             => $items
+            'products'          => $products
         ];
 
         $this->load->view('template', $data);
@@ -35,7 +35,7 @@ class Item extends US_Controller
 
     public function find($id)
     {
-        $item = $this->item_m->find($id);
+        $product = $this->product_m->find($id);
 
         $this->load->model(['category_m', 'supplier_m']);
 
@@ -50,12 +50,12 @@ class Item extends US_Controller
         ];
 
         $data = [
-            'title'             => 'Item '.$item->name,
-            'main_content'      => 'item/item_find_v',
+            'title'             => 'product '.$product->name,
+            'main_content'      => 'product/product_find_v',
             'js'                => $js,
             'categories'        => $categories,
             'suppliers'         => $suppliers,
-            'item'              => $item
+            'product'              => $product
         ];
 
         $this->load->view('template', $data);
@@ -63,10 +63,11 @@ class Item extends US_Controller
 
     public function add()
     {
-        $this->load->model(['category_m', 'supplier_m']);
+        $this->load->model(['product_type_m', 'brand_m', 'supplier_m']);
 
-        $categories = $this->category_m->all('name');
-        $suppliers = $this->supplier_m->all('name');
+        $product_types = $this->product_type_m->all();
+        $brands = $this->brand_m->all();
+        $suppliers = $this->supplier_m->all();
 
         $js = [
             'bootstrap/bootstrap-datepicker',
@@ -76,10 +77,11 @@ class Item extends US_Controller
         ];
 
         $data = [
-            'title'             => 'Tambah Item',
-            'main_content'      => 'item/item_add_v',
+            'title'             => $this->pre_title.'Add Product',
+            'main_content'      => 'product/product_add_v',
             'js'                => $js,
-            'categories'        => $categories,
+            'product_types'             => $product_types,
+            'brands'            => $brands,
             'suppliers'         => $suppliers
         ];
 
@@ -95,21 +97,21 @@ class Item extends US_Controller
         }
         else
         {
-            $insert = $this->item_m->insert($this->input->post());
-            redirect('item');
+            $insert = $this->product_m->insert($this->input->post());
+            redirect('product');
         }
     }
 
     public function update()
     {
-        if($this->form_validation->run('item/insert') == FALSE)
+        if($this->form_validation->run('product/insert') == FALSE)
         {
             $this->find($this->input->post('id'));
         }
         else
         {
-            $update = $this->item_m->update($this->input->post());
-            redirect('item/' . $this->input->post('id'));
+            $update = $this->product_m->update($this->input->post());
+            redirect('product/' . $this->input->post('id'));
         }
     }
 
